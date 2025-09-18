@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import serverless from "serverless-http";
 
 const app = express();
 app.use(express.json());
@@ -24,4 +23,5 @@ app.get("/api/data", (req, res) => {
   res.json(latestData);
 });
 
-export default serverless(app);
+// 👉 IMPORTANT: Export app (no app.listen here)
+export default app;

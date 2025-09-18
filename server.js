@@ -1,27 +1,35 @@
-import express from "express";
-import cors from "cors";
+// import express from "express";
+// import cors from "cors";
 
-const app = express();
-app.use(express.json());
-app.use(cors());
+// const app = express();
+// app.use(express.json());
+// app.use(cors());
 
-let latestData = {
-  heart_rate: 0,
-  spo2: 0,
-  temperature: 0,
-  battery: 0,
-  timestamp: new Date(),
-};
+// let latestData = {
+//   heart_rate: 0,
+//   spo2: 0,
+//   temperature: 0,
+//   battery: 0,
+//   timestamp: new Date(),
+// };
 
-app.post("/api/data", (req, res) => {
-  latestData = { ...req.body, timestamp: new Date() };
-  console.log("Received:", latestData);
-  res.json({ status: "ok" });
-});
+// app.post("/api/data", (req, res) => {
+//   latestData = { ...req.body, timestamp: new Date() };
+//   console.log("Received:", latestData);
+//   res.json({ status: "ok" });
+// });
 
-app.get("/api/data", (req, res) => {
-  res.json(latestData);
-});
+// app.get("/api/data", (req, res) => {
+//   res.json(latestData);
+// });
+
+// const PORT = process.env.PORT || 5000;
+// app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+
+
+
+
+import app from "./api/index.js";
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`✅ Server running locally on port ${PORT}`));
